@@ -2,8 +2,16 @@
 
 - name: Converge
   hosts: all
-  gather_facts: yes
+  gather_facts: true
+  vars:
+    potos_xdg_autostart:
+      - script: "test_1.sh.j2"
+        runonlyonce: true
+      - script: "test_2.sh.j2"
+        runonlyonce: false
+
   tasks:
-    - name: run role
+
+    - name: Run role
       ansible.builtin.include_role:
-        name: 'ansible-role-potos_template'
+        name: 'ansible-role-potos_xdgautostart'
