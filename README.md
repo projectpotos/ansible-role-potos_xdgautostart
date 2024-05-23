@@ -56,4 +56,6 @@ See [LICENSE](./LICENSE)
 ## Author Information
 
 [Project Potos](https://github.com/projectpotos)
+[wickdchromosome](https://github.com/wickdChromosome)
+
 
