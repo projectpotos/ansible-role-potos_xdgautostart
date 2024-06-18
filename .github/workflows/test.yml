@@ -40,7 +40,7 @@ jobs:
           sudo systemctl status docker
           sudo ls -l /var/run/docker.sock
           #docker info
-          echo $DOCKER_HOST
+          echo "host is: "$DOCKER_HOST
           #molecule test
         env:
           MOLECULE_DISTRO: ${{ matrix.distro }}
