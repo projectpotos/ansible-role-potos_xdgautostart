@@ -42,6 +42,6 @@ jobs:
           #docker info
           export DOCKER_HOST="/run/docker.sock"
           echo "host is: "$DOCKER_HOST
-          #molecule test
+          molecule test
         env:
           MOLECULE_DISTRO: ${{ matrix.distro }}
