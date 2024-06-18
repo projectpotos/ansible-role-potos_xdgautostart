@@ -31,8 +31,9 @@ jobs:
           python -m pip install -r requirements.txt
           #sudo apt install podman -y
           #sudo systemctl enable podman.service
-          sudo apt install docker -y
-          sudo systemctl enable podman.service
+          sudo apt update
+          sudo apt install docker.io -y
+          sudo systemctl enable docker.service
 
 
       - name: Lint with ansible-lint including yamllint
