@@ -25,19 +25,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          #sudo apt install podman -y
-          #sudo systemctl enable podman.service
-          sudo apt update
-          sudo apt purge docker.io containerd runc
-          curl -fsSL https://get.docker.com -o get-docker.sh
-          sudo sh get-docker.sh
-          sudo systemctl enable docker.service
-         
-          python -m pip uninstall molecule-docker
-          python -m pip install molecule-docker
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
-
+          sudo apt install podman -y
+          sudo systemctl enable podman.service
 
       - name: Lint with ansible-lint including yamllint
         run: |
@@ -45,14 +34,6 @@ jobs:
 
       - name: Test with molecule
         run: |
-          sudo usermod -aG docker $USER
-          newgrp docker
-          systemctl status docker
-          ls -l /var/run/docker.sock
-          #docker info
-          export DOCKER_HOST="/run/docker.sock"
-          export molecule_inst=$(which molecule)
-          groups $(whoami)
-          $molecule_inst --debug test
+          molecule test
         env:
           MOLECULE_DISTRO: ${{ matrix.distro }}
