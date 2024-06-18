@@ -42,7 +42,7 @@ jobs:
           #docker info
           export DOCKER_HOST="/run/docker.sock"
           echo "host is: "$DOCKER_HOST
-          docker run --rm -it ubuntu:latest /bin/bash
+          sudo docker run --rm -it ubuntu:latest /bin/bash
           #molecule test
         env:
           MOLECULE_DISTRO: ${{ matrix.distro }}
