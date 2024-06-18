@@ -2,6 +2,9 @@
 
 - name: Prepare
   hosts: all
-  gather_facts: yes
+  gather_facts: true
 
-  tasks: []
+  tasks:
+    - name: Make directory for gnome autostart script(w/o installing gnome)
+      changed_when: false
+      ansible.builtin.command: 'mkdir -p /etc/xdg/autostart'  # noqa: command-instead-of-module
