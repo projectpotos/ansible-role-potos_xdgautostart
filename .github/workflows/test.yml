@@ -43,6 +43,7 @@ jobs:
           export DOCKER_HOST="/run/docker.sock"
           echo "host is: "$DOCKER_HOST
           #sudo docker run ubuntu:latest
-          sudo molecule --debug test
+          export molecule_inst=$(which molecule)
+          sudo $molecule_inst --debug test
         env:
           MOLECULE_DISTRO: ${{ matrix.distro }}
