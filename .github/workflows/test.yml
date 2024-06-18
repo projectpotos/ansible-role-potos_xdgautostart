@@ -45,6 +45,8 @@ jobs:
 
       - name: Test with molecule
         run: |
+          sudo usermod -aG docker $USER
+          newgrp docker
           systemctl status docker
           ls -l /var/run/docker.sock
           #docker info
