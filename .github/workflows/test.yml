@@ -39,7 +39,8 @@ jobs:
           docker --version
           sudo systemctl status docker
           sudo ls -l /var/run/docker.sock
-          docker info
+          #docker info
+          echo $DOCKER_HOST
           #molecule test
         env:
           MOLECULE_DISTRO: ${{ matrix.distro }}
