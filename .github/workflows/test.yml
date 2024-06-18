@@ -28,7 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           sudo apt install docker -y
-          sudo systemctl start docker.service
+          sudo systemctl enable docker.service
 
       - name: Lint with ansible-lint including yamllint
         run: |
@@ -36,6 +36,7 @@ jobs:
 
       - name: Test with molecule
         run: |
+          docker --version
           molecule test
         env:
           MOLECULE_DISTRO: ${{ matrix.distro }}
