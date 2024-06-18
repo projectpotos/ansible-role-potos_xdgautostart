@@ -37,14 +37,11 @@ jobs:
       - name: Test with molecule
         run: |
           sudo -i
-          docker --version
-          sudo systemctl status docker
-          sudo ls -l /var/run/docker.sock
+          systemctl status docker
+          ls -l /var/run/docker.sock
           #docker info
           export DOCKER_HOST="/run/docker.sock"
-          echo "host is: "$DOCKER_HOST
-          #sudo docker run ubuntu:latest
           export molecule_inst=$(which molecule)
-          sudo -E $molecule_inst --debug test
+          $molecule_inst --debug test
         env:
           MOLECULE_DISTRO: ${{ matrix.distro }}
