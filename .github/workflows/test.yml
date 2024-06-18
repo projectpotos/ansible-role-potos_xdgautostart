@@ -40,6 +40,7 @@ jobs:
           sudo systemctl status docker
           sudo ls -l /var/run/docker.sock
           #docker info
+          export DOCKER_HOST="/run/docker.sock"
           echo "host is: "$DOCKER_HOST
           #molecule test
         env:
