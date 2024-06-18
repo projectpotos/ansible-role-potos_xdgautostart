@@ -26,9 +26,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          python -m pip uninstall molecule-docker
+          python -m pip install molecule-docker
           python -m pip install -r requirements.txt
-          sudo apt install podman -y
+          #sudo apt install podman -y
+          #sudo systemctl enable podman.service
+          sudo apt install docker -y
           sudo systemctl enable podman.service
+
 
       - name: Lint with ansible-lint including yamllint
         run: |
