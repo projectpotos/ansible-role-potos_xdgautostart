@@ -37,6 +37,7 @@ jobs:
       - name: Test with molecule
         run: |
           docker --version
+          sudo systemctl status docker
           molecule test
         env:
           MOLECULE_DISTRO: ${{ matrix.distro }}
