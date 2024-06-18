@@ -28,7 +28,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           sudo apt install podman -y
-          # sudo systemctl enable docker.service
+          sudo systemctl enable podman.service
 
       - name: Lint with ansible-lint including yamllint
         run: |
