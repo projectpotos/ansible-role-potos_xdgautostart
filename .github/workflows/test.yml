@@ -38,6 +38,8 @@ jobs:
         run: |
           docker --version
           sudo systemctl status docker
+          sudo ls -l /var/run/docker.sock
+          groups $USER
           molecule test
         env:
           MOLECULE_DISTRO: ${{ matrix.distro }}
